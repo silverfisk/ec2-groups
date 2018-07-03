@@ -1,0 +1,8 @@
+---
+  - block:
+
+    - include_tasks: ec2_groups.yaml
+      when: ec2_groups is defined
+      with_items: "{{ ec2_groups }}"
+      tags:
+        - ec2_groups

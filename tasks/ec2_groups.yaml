@@ -1,0 +1,16 @@
+- name: "{{ Application }} {{ item }} AWS Security Group"
+  ec2_group:
+    name: "{{ item }}"
+    description: "Group for {{ Application }} shared server"
+    vpc_id: "{{vpc_id}}"
+    region: "{{AWSRegion}}"
+    rules: "{{ ec2_groups[item].rules }}"
+    state: "{{ ec2_groups[item].state }}"
+    tags:
+      Name: "{{ item }}"
+      EnvironmentClass: "{{EnvironmentClass}}"
+      Owner: "{{ OwnerEmail }}"
+      CostCenter: "{{ CostCenter }}"
+      Application: "{{ Application }}"
+      Tier: "{{ ApplicationTier }}"
+  register: "{{ item }}"
