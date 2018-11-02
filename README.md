@@ -1,4 +1,4 @@
-# ec2-instance
+# ec2-groups
 
 Ansible role that maintains AWS EC2 security groups according to ```ec2_groups``` variable.
 
